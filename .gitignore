@@ -8,5 +8,3 @@ typechain-types
 #Hardhat files
 cache
 artifacts
-.secret.json
-
