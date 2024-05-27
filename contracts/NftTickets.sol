@@ -40,7 +40,7 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         tickets[tokenId] = Ticket({
             eventDetails: eventDetails,
             originalPrice: originalPrice,
-            ownershipHistory: address ,
+            ownershipHistory: new address ,
             isUsed: false
         });
 
