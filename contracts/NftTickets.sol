@@ -16,6 +16,7 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     struct Ticket {
         string eventDetails;
         uint256 originalPrice;
+        uint256 expirationDate;
         address[] ownershipHistory;
         bool isUsed;
     }
@@ -23,15 +24,16 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     mapping(uint256 => Ticket) private tickets;
     mapping(uint256 => uint256) public maxResalePrice;
 
-    event TicketMinted(uint256 indexed tokenId, address indexed owner, string eventDetails, uint256 originalPrice);
+    event TicketMinted(uint256 indexed tokenId, address indexed owner, string eventDetails, uint256 originalPrice, uint256 expirationDate);
     event TicketTransferred(uint256 indexed tokenId, address indexed from, address indexed to);
     event TicketValidated(uint256 indexed tokenId, address indexed validator);
+    event TicketExpired(uint256 indexed tokenId);
     event TicketMetadataUpdated(uint256 indexed tokenId, string newEventDetails, string newURI);
     event TicketMaxResalePriceSet(uint256 indexed tokenId, uint256 maxPrice);
 
     constructor() ERC721("NftTickets", "TIC") {}
 
-    function safeMint(address to, string memory uri, string memory eventDetails, uint256 originalPrice) public onlyOwner {
+    function safeMint(address to, string memory uri, string memory eventDetails, uint256 originalPrice, uint256 expirationDate) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
@@ -40,13 +42,14 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         tickets[tokenId] = Ticket({
             eventDetails: eventDetails,
             originalPrice: originalPrice,
+            expirationDate: expirationDate,
             ownershipHistory: new address ,
             isUsed: false
         });
 
         tickets[tokenId].ownershipHistory.push(to);
 
-        emit TicketMinted(tokenId, to, eventDetails, originalPrice);
+        emit TicketMinted(tokenId, to, eventDetails, originalPrice, expirationDate);
     }
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
@@ -55,8 +58,9 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     {
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
 
+        require(_isTicketValid(tokenId), "Ticket has expired or been used");
+
         if (from != address(0) && to != address(0)) {
-            require(maxResalePrice[tokenId] == 0 || msg.value <= maxResalePrice[tokenId], "Resale price exceeds limit");
             tickets[tokenId].ownershipHistory.push(to);
             emit TicketTransferred(tokenId, from, to);
         }
@@ -65,6 +69,7 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     function validateTicket(uint256 tokenId) public onlyOwner {
         require(_exists(tokenId), "Token does not exist");
         require(!tickets[tokenId].isUsed, "Ticket already used");
+        require(_isTicketValid(tokenId), "Ticket has expired");
         tickets[tokenId].isUsed = true;
         emit TicketValidated(tokenId, msg.sender);
     }
@@ -74,9 +79,10 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         return tickets[tokenId].ownershipHistory;
     }
 
-    function getTicketStatus(uint256 tokenId) public view returns (bool) {
+    function getTicketStatus(uint256 tokenId) public view returns (bool isUsed, bool isValid) {
         require(_exists(tokenId), "Token does not exist");
-        return tickets[tokenId].isUsed;
+        isUsed = tickets[tokenId].isUsed;
+        isValid = _isTicketValid(tokenId);
     }
 
     function updateTicketMetadata(uint256 tokenId, string memory newEventDetails, string memory newURI) public onlyOwner {
@@ -90,6 +96,17 @@ contract NftTickets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         require(_exists(tokenId), "Token does not exist");
         maxResalePrice[tokenId] = maxPrice;
         emit TicketMaxResalePriceSet(tokenId, maxPrice);
+    }
+
+    function burnExpiredTickets(uint256 tokenId) public onlyOwner {
+        require(_exists(tokenId), "Token does not exist");
+        require(!_isTicketValid(tokenId), "Ticket is still valid");
+        _burn(tokenId);
+        emit TicketExpired(tokenId);
+    }
+
+    function _isTicketValid(uint256 tokenId) internal view returns (bool) {
+        return (block.timestamp <= tickets[tokenId].expirationDate && !tickets[tokenId].isUsed);
     }
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
