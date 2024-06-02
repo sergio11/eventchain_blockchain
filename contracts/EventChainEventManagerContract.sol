@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "./IEventChainContract.sol";
+import "./IEventChainEventManagerContract.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
@@ -49,5 +50,13 @@ contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContr
         require(events[eventId].organizer == msg.sender, "Only the event organizer can mint tickets");
 
         eventChainContract.safeMint(to, uri, events[eventId].name, events[eventId].ticketPrice, block.timestamp + 1 weeks); // Example: Ticket expires in 1 week
+    }
+
+    function transferEvent(uint256 eventId, address to) external onlyOwner {
+        Event storage currentEvent = events[eventId];
+        require(currentEvent.organizer == msg.sender, "Only the event organizer can transfer the event");
+
+        currentEvent.organizer = to;
+        emit EventTransferred(eventId, msg.sender, to);
     }
 }

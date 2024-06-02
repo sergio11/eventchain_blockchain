@@ -6,9 +6,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "./IEventChain.sol";
+import "./IEventChainContract.sol";
 
-contract EventChainContract is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, IEventChain {
+contract EventChainContract is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable, IEventChainContract {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
@@ -36,7 +36,7 @@ contract EventChainContract is ERC721, ERC721Enumerable, ERC721URIStorage, Ownab
             eventDetails: eventDetails,
             originalPrice: originalPrice,
             expirationDate: expirationDate,
-            ownershipHistory: new address[] ,
+            ownershipHistory: new address[],
             isUsed: false
         });
 
