@@ -61,6 +61,14 @@ interface IEventChainContract {
     function burnExpiredTickets(uint256 tokenId) external;
 
     /**
+     * @dev Transfers a ticket from one address to another without updating ownership history.
+     * @param from The address from which the ticket is transferred.
+     * @param to The address to which the ticket is transferred.
+     * @param tokenId The ID of the ticket to transfer.
+     */
+    function transferWithHistoryUpdate(address from, address to, uint256 tokenId) external;
+
+    /**
      * @dev Emitted when a ticket is minted.
      * @param tokenId The ID of the minted ticket.
      * @param owner The address to which the ticket is minted.
