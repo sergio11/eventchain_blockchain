@@ -2,6 +2,15 @@
 
 Welcome to **EventChain**, a revolutionary ticketing system leveraging blockchain technology to ensure security, transparency, and trust in event ticketing. EventChain allows event organizers to issue non-fungible tokens (NFTs) as tickets, providing a tamper-proof solution that prevents fraud, enhances traceability, and ensures tickets are always valid and secure.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Solidity-2E8B57?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/Alchemy-039BE5?style=for-the-badge&logo=alchemy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Remix IDE-3e5f8a?style=for-the-badge&logo=remix&logoColor=white" />
+  <img src="https://img.shields.io/badge/Hardhat-E6522C?style=for-the-badge&logo=hardhat&logoColor=white" />
+  <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" />
+  <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Ethereum&logoColor=white" />
+</p>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
