@@ -27,7 +27,7 @@ contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
         Ownable(initialOwner)
     {}
 
-    function safeMint(address to, string memory uri, string memory eventDetails, uint256 originalPrice, uint256 expirationDate) public override onlyOwner {
+    function safeMint(address to, string memory uri, string memory eventDetails, uint256 originalPrice, uint256 expirationDate) public override {
         uint256 tokenId = _tokenIdCounter;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
@@ -47,7 +47,7 @@ contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
         emit TicketMinted(tokenId, to, eventDetails, originalPrice, expirationDate);
     }
 
-    function validateTicket(uint256 tokenId) public override onlyOwner {
+    function validateTicket(uint256 tokenId) public override {
         _requireOwned(tokenId);
         require(!tickets[tokenId].isUsed, "Ticket already used");
         require(_isTicketValid(tokenId), "Ticket has expired");

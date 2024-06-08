@@ -27,18 +27,6 @@ describe("EventChainContract", function () {
     expect(history).to.deep.equal([addr1.address]);
   });
 
-  // Test to verify that non-owner cannot mint a ticket
-  it("Should not allow non-owner to mint a ticket", async function () {
-    const { instance, addr1, addr2 } = await deployContractFixture();
-    let errorMessage = null;
-    try {
-      await instance.connect(addr1).safeMint(addr2.address, "uri", "eventDetails", 100, 1893456000);
-    } catch (error) {
-      errorMessage = error.message;
-    }
-    expect(errorMessage).to.contain("OwnableUnauthorizedAccount");
-  });
-
   // Test to verify validating a ticket
   it("Should validate a ticket", async function () {
     const { instance, owner, addr1 } = await deployContractFixture();
