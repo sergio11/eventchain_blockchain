@@ -10,19 +10,15 @@ contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContr
     using Counters for Counters.Counter;
     Counters.Counter private _eventIdCounter;
 
-    struct Event {
-        string name;
-        string location;
-        string date;
-        uint256 ticketPrice;
-        address organizer;
-    }
-
     mapping(uint256 => Event) private events;
-    IEventChainContract private eventChainContract;
+    IEventChainContract private _eventChainContract;
 
-    constructor(address eventChainContractAddress) {
-        eventChainContract = IEventChainContract(eventChainContractAddress);
+    constructor(address eventChainContractAddress, address initialOwner)
+        Ownable(initialOwner)
+    {}
+
+    function setEventChainAddress(address eventChainContractAddress) external onlyOwner() {
+        _eventChainContract = IEventChainContract(eventChainContractAddress);
     }
 
     function createEvent(string memory name, string memory location, string memory date, uint256 ticketPrice) public override {
@@ -49,7 +45,7 @@ contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContr
         require(eventId < _eventIdCounter.current(), "Event does not exist");
         require(events[eventId].organizer == msg.sender, "Only the event organizer can mint tickets");
 
-        eventChainContract.safeMint(to, uri, events[eventId].name, events[eventId].ticketPrice, block.timestamp + 1 weeks); // Example: Ticket expires in 1 week
+        _eventChainContract.safeMint(to, uri, events[eventId].name, events[eventId].ticketPrice, block.timestamp + 1 weeks); // Example: Ticket expires in 1 week
     }
 
     function transferEvent(uint256 eventId, address to) external onlyOwner {

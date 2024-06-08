@@ -56,4 +56,13 @@ interface IEventChainEventManagerContract {
      * @param toOrganizer The address of the new organizer.
      */
     event EventTransferred(uint256 indexed eventId, address indexed fromOrganizer, address indexed toOrganizer);
+
+
+    struct Event {
+        string name;
+        string location;
+        string date;
+        uint256 ticketPrice;
+        address organizer;
+    }
 }

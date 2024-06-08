@@ -1,12 +1,15 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const ContractFactory = await ethers.getContractFactory("NftTickets");
 
-  const instance = await ContractFactory.deploy();
-  await instance.deployed();
-
-  console.log(`Contract deployed to ${instance.address}`);
+  const eventChainContractFactory = await ethers.getContractFactory("EventChainContract")
+  const eventChainEventManagerContractFactory = await ethers.getContractFactory("EventChainEventManagerContract")
+  const eventChainContract = await eventChainContractFactory.deploy()
+  const eventChainEventManagerContract = await eventChainEventManagerContractFactory.deploy()
+  await eventChainEventManagerContract.setEventChainAddress(eventChainContract.address)
+  
+  console.log(`EventChain contract deployed to ${eventChainContract.address}`);
+  console.log(`EventChainEventManager contract deployed to ${eventChainEventManagerContract.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
