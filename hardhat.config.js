@@ -1,14 +1,12 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+require("@nomicfoundation/hardhat-toolbox");
 const secret = require('./.secret.json');
 
-const config: HardhatUserConfig = {
-  solidity: {
-    version: "0.8.9",
-    settings: {
-      optimizer: {
-        enabled: true,
-      },
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.24",
+  settings: {
+    optimizer: {
+      enabled: true,
     },
   },
   networks: {
@@ -25,5 +23,3 @@ const config: HardhatUserConfig = {
     }
   }
 };
-
-export default config;

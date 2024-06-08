@@ -5,13 +5,11 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "./IEventChainContract.sol";
 
 contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable, IEventChainContract {
-    using Counters for Counters.Counter;
 
-    Counters.Counter private _tokenIdCounter;
+    uint256 private _tokenIdCounter;
 
     struct Ticket {
         string eventDetails;
@@ -30,10 +28,10 @@ contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
     {}
 
     function safeMint(address to, string memory uri, string memory eventDetails, uint256 originalPrice, uint256 expirationDate) public override onlyOwner {
-        uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
+        uint256 tokenId = _tokenIdCounter;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+        _tokenIdCounter += 1;
 
         address[] memory emptyHistory = new address[](0);
         tickets[tokenId] = Ticket({
