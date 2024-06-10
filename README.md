@@ -1,7 +1,7 @@
 # 🎫 EventChain: Revolutionizing Ticketing with Blockchain Technology
 Welcome to EventChain! This project leverages the power of blockchain to solve persistent issues in the event ticketing industry such as counterfeit tickets, ticket scalping, and lack of transparency. With EventChain, we aim to create a secure, transparent, and tamper-proof ticketing solution.
 
-* 🌟 Key Features
+## 🌟 Key Features
 * 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Ethereum blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
 * 🕵️ Transparent Ownership and Traceability: Every transfer of a ticket is recorded on the blockchain, creating an immutable and auditable ownership history.
 * ⏰ Expiration Control and Event Management: Organizers can set expiration dates for tickets, preventing their misuse after the event.
