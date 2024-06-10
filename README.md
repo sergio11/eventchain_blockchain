@@ -61,7 +61,8 @@ contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
 * **setMaxResalePrice:** 💰 Sets a maximum resale price for a ticket, helping organizers regulate ticket resale and prevent scalping.
 * **burnExpiredTickets:** 🔥 Burns tickets that have expired, removing them from the system to free up resources and ensure efficient management of ticket inventory.
 
-### EventChainEventManagerContract
+### 🎟️ EventChainEventManagerContract
+The **EventChainEventManagerContract** is the backbone of the EventChain ecosystem, enabling seamless event management, ticket minting, and event transfer functionalities. It empowers organizers to create, manage, and transfer events securely and transparently on the blockchain, ensuring a smooth and reliable ticketing process from start to finish.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -77,12 +78,12 @@ contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContr
 
 ```
 
-#### Key Functions
-* **setEventChainAddress:** Sets the address of the EventChainContract.
-* **createEvent:** Creates a new event.
-* **getEventDetails:** Retrieves the details of an event.
-* **mintTicket:** Mints a new ticket for an event.
-* **transferEvent:** Transfers the event to another organizer.
+#### 🔑 Key Functions
+* **setEventChainAddress:** 🎟️ Sets the address of the EventChainContract, enabling communication between the EventChainEventManagerContract and the EventChainContract.
+* **createEvent:** 📅 Creates a new event with specified details such as name, location, date, and ticket price. This function allows event organizers to set up events on the platform.
+* **getEventDetails:** 📋 Retrieves the details of a specific event, providing information such as event name, location, date, and ticket price.
+* **mintTicket:** 💳 Mints a new ticket for a specific event, allowing event organizers to issue tickets to attendees.
+* **transferEvent:** 🔄 Transfers the ownership of an event to another organizer, enabling event management by different entities over time.
 
 ## 🚀 Usage
 
