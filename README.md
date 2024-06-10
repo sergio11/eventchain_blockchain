@@ -1,13 +1,28 @@
 # Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
 
-Try running some of the following tasks:
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+npx hardhat ignition deploy ignition/modules/EventChain.js --network amoy   
+```
+
+
+```shell
+√ Confirm deploy to network amoy (80002)? ... yes
+Hardhat Ignition 🚀
+
+Deploying [ EventChain ]
+
+Batch #1
+  Executed EventChain#EventChainContract
+
+Batch #2
+  Executed EventChain#EventChainEventManagerContract
+
+[ EventChain ] successfully deployed 🚀
+
+Deployed Addresses
+
+EventChain#EventChainContract - 0xd4bC2d72a3f04ad194130ADcC35E9592a2a1761B
+EventChain#EventChainEventManagerContract - 0xbaCAfEeEA7F14dE0cD8A1462C0136E429b323345
 ```
