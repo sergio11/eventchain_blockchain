@@ -1,6 +1,16 @@
 # 🎫 EventChain: Revolutionizing Ticketing with Blockchain Technology
 Welcome to EventChain! This project leverages the power of blockchain to solve persistent issues in the event ticketing industry such as counterfeit tickets, ticket scalping, and lack of transparency. With EventChain, we aim to create a secure, transparent, and tamper-proof ticketing solution.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Solidity-2E8B57?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/Alchemy-039BE5?style=for-the-badge&logo=alchemy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Remix IDE-3e5f8a?style=for-the-badge&logo=remix&logoColor=white" />
+  <img src="https://img.shields.io/badge/Hardhat-E6522C?style=for-the-badge&logo=hardhat&logoColor=white" />
+  <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" />
+  <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Ethereum&logoColor=white" />
+</p>
+
+
 ## 🌟 Key Features
 * 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Ethereum blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
 * 🕵️ Transparent Ownership and Traceability: Every transfer of a ticket is recorded on the blockchain, creating an immutable and auditable ownership history.
