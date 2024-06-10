@@ -8,8 +8,7 @@ describe("EventChainEventManagerContract", function () {
     const eventChainContractFactory = await ethers.getContractFactory("EventChainContract")
     const eventChainContract = await eventChainContractFactory.deploy(owner.address)
     const ContractFactory = await ethers.getContractFactory("EventChainEventManagerContract")
-    const instance = await ContractFactory.deploy(owner.address)
-    await instance.setEventChainAddress(eventChainContract)
+    const instance = await ContractFactory.deploy(owner.address, eventChainContract)
     return { ContractFactory, instance, eventChainContract,  owner, addr1, addr2, addr3 }
   }
 

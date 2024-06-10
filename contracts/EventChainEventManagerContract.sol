@@ -22,9 +22,11 @@ contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContr
      * @dev Initializes the contract by setting a `initialOwner`.
      * @param initialOwner The address of the initial owner of the contract.
      */
-    constructor(address initialOwner)
+    constructor(address initialOwner, address eventChainContractAddress)
         Ownable(initialOwner)
-    {}
+    {
+        _eventChainContractAddress = eventChainContractAddress;
+    }
 
     /**
      * @dev Sets the address of the EventChainContract.
