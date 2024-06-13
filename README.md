@@ -21,6 +21,8 @@ In the traditional ticketing system, these problems have caused significant fina
 ## UML Design Diagram
 Complete UML diagram of decentralized application design.
 
+<img width="auto" src="./doc/diagram.svg" />
+
 ## 🛠️ Installation
 First, clone the repository:
 
@@ -175,6 +177,8 @@ You can also use ganache to carry out the tests, for this it is only necessary t
 ```shell
 npx hardhat --network ganache test
 ```
+
+<img width="auto" src="./doc/ganache.PNG" />
 
 Tests provide comprehensive coverage of all smart contract functionalities. They validate critical operations such as ticket creation, transfer, validation, and metadata updates. This thorough testing helps ensure that the EventChain platform is secure, reliable, and ready for deployment in real-world scenarios.
 
