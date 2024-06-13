@@ -18,6 +18,10 @@ In the traditional ticketing system, these problems have caused significant fina
 * ⏰ Expiration Control and Event Management: Organizers can set expiration dates for tickets, preventing their misuse after the event.
 * 💸 Resale Regulation: Allows setting a maximum resale price for tickets to combat scalping.
 
+## More Details 📝
+
+For comprehensive information about this project, check out this [Medium article](https://sanchezsanchezsergio418.medium.com/eventchain-revolutionizing-ticketing-with-blockchain-technology-3ac39dbe20cb).
+
 ## UML Design Diagram
 Complete UML diagram of decentralized application design.
 
