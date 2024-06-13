@@ -18,6 +18,9 @@ In the traditional ticketing system, these problems have caused significant fina
 * ⏰ Expiration Control and Event Management: Organizers can set expiration dates for tickets, preventing their misuse after the event.
 * 💸 Resale Regulation: Allows setting a maximum resale price for tickets to combat scalping.
 
+## UML Design Diagram
+Complete UML diagram of decentralized application design.
+
 ## 🛠️ Installation
 First, clone the repository:
 
@@ -124,8 +127,6 @@ EventChain#EventChainEventManagerContract - 0xbaCAfEeEA7F14dE0cD8A1462C0136E429b
 
 Deploying your EventChain contracts with Hardhat Ignition ensures a smooth, efficient, and error-free process, paving the way for a robust and transparent event ticketing system.
 
-## 🔗 Interacting with Contracts
-
 ## 🧪 Testing
 Testing is a critical part of the development process for ensuring that our smart contracts function correctly and securely. The EventChain project includes comprehensive test suites for both the EventChainContract and the EventChainEventManagerContract. These tests cover a wide range of scenarios to ensure robustness and reliability.
 
@@ -169,8 +170,23 @@ This command will execute all the test scripts located in the test directory, an
   22 passing (6s)
 ```
 
+You can also use ganache to carry out the tests, for this it is only necessary to use the network option
+
+```shell
+npx hardhat --network ganache test
+```
+
 Tests provide comprehensive coverage of all smart contract functionalities. They validate critical operations such as ticket creation, transfer, validation, and metadata updates. This thorough testing helps ensure that the EventChain platform is secure, reliable, and ready for deployment in real-world scenarios.
 
 
+## Visitors Count
 
+
+## Please Share & Star the repository to keep me motivated.
+  <a href = "https://github.com/sergio11/eventchain_blockchain/stargazers">
+     <img src = "https://img.shields.io/github/stars/sergio11/eventchain_blockchain" />
+  </a>
+  <a href = "https://twitter.com/SergioReact418">
+     <img src = "https://img.shields.io/twitter/url?label=follow&style=social&url=https%3A%2F%2Ftwitter.com%2FSergioReact418" />
+  </a>
 
