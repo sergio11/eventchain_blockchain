@@ -124,8 +124,6 @@ EventChain#EventChainEventManagerContract - 0xbaCAfEeEA7F14dE0cD8A1462C0136E429b
 
 Deploying your EventChain contracts with Hardhat Ignition ensures a smooth, efficient, and error-free process, paving the way for a robust and transparent event ticketing system.
 
-## 🔗 Interacting with Contracts
-
 ## 🧪 Testing
 Testing is a critical part of the development process for ensuring that our smart contracts function correctly and securely. The EventChain project includes comprehensive test suites for both the EventChainContract and the EventChainEventManagerContract. These tests cover a wide range of scenarios to ensure robustness and reliability.
 
