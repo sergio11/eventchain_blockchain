@@ -44,14 +44,26 @@ describe("EventChainContract", function () {
     const { instance, owner, addr1 } = await deployContractFixture();
     await instance.safeMint(addr1.address, "uri", "eventDetails", 100, 1893456000);
     await instance.validateTicket(0);
-    await expect(instance.validateTicket(0)).to.be.revertedWith("Ticket already used");
+    let errorMessage = null;
+    try {
+      await instance.validateTicket(0);
+    } catch (error) {
+      errorMessage = error.message;
+    }
+    expect(errorMessage).to.contain("Ticket already used");
   });
 
   // Test to verify validation of an expired ticket fails
   it("Should fail to validate an expired ticket", async function () {
     const { instance, addr1 } = await deployContractFixture();
     await instance.safeMint(addr1.address, "uri", "eventDetails", 100, 0); // expired ticket
-    await expect(instance.validateTicket(0)).to.be.revertedWith("Ticket has expired");
+    let errorMessage = null;
+    try {
+      await instance.validateTicket(0);
+    } catch (error) {
+      errorMessage = error.message;
+    }
+    expect(errorMessage).to.contain("Ticket has expired");
   });
 
   // Test to verify updating ticket metadata
@@ -124,7 +136,13 @@ describe("EventChainContract", function () {
   it("Should not allow burning of valid tickets", async function () {
     const { instance, addr1 } = await deployContractFixture();
     await instance.safeMint(addr1.address, "uri", "eventDetails", 100, 1893456000); // valid ticket
-    await expect(instance.burnExpiredTickets(0)).to.be.revertedWith("Ticket is still valid");
+    let errorMessage = null;
+    try {
+      await instance.burnExpiredTickets(0);
+    } catch (error) {
+      errorMessage = error.message;
+    }
+    expect(errorMessage).to.contain("Ticket is still valid");
   });
 
   // Test to verify transfer of ticket with history update
