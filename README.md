@@ -117,7 +117,7 @@ EventChain#EventChainContract - 0xd4bC2d72a3f04ad194130ADcC35E9592a2a1761B
 EventChain#EventChainEventManagerContract - 0xbaCAfEeEA7F14dE0cD8A1462C0136E429b323345
 ```
 
-####Post-Deployment Steps
+#### Post-Deployment Steps
 * **Verify Contracts:** Use a block explorer (e.g., Etherscan) to verify your contracts are deployed correctly and to explore the contract's details.
 * **Interact with Contracts:** Utilize the provided addresses to interact with your deployed contracts via a web interface or directly through scripts and tools like Hardhat or web3.js.
 * **Set Up Event Management:** Use the deployed **EventChainEventManagerContract** to set up and manage events, mint tickets, and more.
@@ -127,9 +127,49 @@ Deploying your EventChain contracts with Hardhat Ignition ensures a smooth, effi
 ## 🔗 Interacting with Contracts
 
 ## 🧪 Testing
+Testing is a critical part of the development process for ensuring that our smart contracts function correctly and securely. The EventChain project includes comprehensive test suites for both the EventChainContract and the EventChainEventManagerContract. These tests cover a wide range of scenarios to ensure robustness and reliability.
+
+### Running the Tests
 To run the tests, use the following command:
 
-tests ensure comprehensive coverage of all smart contract functionalities, validating ticket creation, transfer, and validation mechanisms.
+```shell
+npx hardhat test
+```
+
+This command will execute all the test scripts located in the test directory, and you should see output similar to the following:
+
+```shell
+  EventChainContract
+    ✔ Should set the right owner (4323ms)
+    ✔ Should mint a ticket (115ms)
+    ✔ Should validate a ticket (134ms)
+    ✔ Should fail to validate an already used ticket (177ms)
+    ✔ Should fail to validate an expired ticket (92ms)
+    ✔ Should update ticket metadata (110ms)
+    ✔ Should not allow non-owner to update ticket metadata (97ms)
+    ✔ Should set max resale price (73ms)
+    ✔ Should not allow non-owner to set max resale price (63ms)
+    ✔ Should burn expired tickets (106ms)
+    ✔ Should not allow burning of valid tickets (60ms)
+    ✔ Should transfer ticket with history update (61ms)
+    ✔ Should not allow non-owner to transfer ticket (54ms)
+
+  EventChainEventManagerContract
+    ✔ Should set the right owner (83ms)
+    ✔ Should set the event chain address (66ms)
+    ✔ Should create an event (112ms)
+    ✔ Should mint a ticket (82ms)
+    ✔ Should transfer an event (79ms)
+    ✔ Should not allow non-owner to transfer an event (82ms)
+    ✔ Should not allow minting a ticket for non-existent event (88ms)
+    ✔ Should not allow minting a ticket by non-organizer (85ms)
+    ✔ Should not allow accessing non-existent event details (79ms)
+
+
+  22 passing (6s)
+```
+
+Tests provide comprehensive coverage of all smart contract functionalities. They validate critical operations such as ticket creation, transfer, validation, and metadata updates. This thorough testing helps ensure that the EventChain platform is secure, reliable, and ready for deployment in real-world scenarios.
 
 
 
