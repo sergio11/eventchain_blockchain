@@ -7,13 +7,13 @@ In the traditional ticketing system, these problems have caused significant fina
   <img src="https://img.shields.io/badge/Alchemy-039BE5?style=for-the-badge&logo=alchemy&logoColor=white" />
   <img src="https://img.shields.io/badge/Remix IDE-3e5f8a?style=for-the-badge&logo=remix&logoColor=white" />
   <img src="https://img.shields.io/badge/Hardhat-E6522C?style=for-the-badge&logo=hardhat&logoColor=white" />
-  <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" />
-  <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Ethereum&logoColor=white" />
+  <img src="https://img.shields.io/badge/Polygon-854ce6?style=for-the-badge&logo=Polygon&logoColor=white" />
+  <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Polygon&logoColor=white" />
 </p>
 
 
 ## 🌟 Key Benefits of EventChain:
-* 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Ethereum blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
+* 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Polygon blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
 * 🕵️ Transparent Ownership and Traceability: Every transfer of a ticket is recorded on the blockchain, creating an immutable and auditable ownership history.
 * ⏰ Expiration Control and Event Management: Organizers can set expiration dates for tickets, preventing their misuse after the event.
 * 💸 Resale Regulation: Allows setting a maximum resale price for tickets to combat scalping.
