@@ -11,6 +11,11 @@ In the traditional ticketing system, these problems have caused significant fina
   <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Polygon&logoColor=white" />
 </p>
 
+## ⚠️ Disclaimer  
+
+**EventChain** is an **experimental and educational project** designed to showcase the potential of **blockchain technology** in revolutionizing the event ticketing industry. While this system demonstrates the benefits of utilizing **NFTs** and blockchain for secure, transparent, and tamper-proof ticketing, it is still a **proof-of-concept** and should not be used for **real-world applications**.
+
+This project aims to provide a **solution** to issues such as counterfeit tickets, scalping, and transparency in the event ticketing industry.
 
 ## 🌟 Key Benefits of EventChain:
 * 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Polygon blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
