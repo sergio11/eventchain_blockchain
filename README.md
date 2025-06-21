@@ -196,8 +196,3 @@ Tests provide comprehensive coverage of all smart contract functionalities. They
 
 <img width="auto" src="https://profile-counter.glitch.me/eventchain_blockchain/count.svg" />
 
-## Please Share & Star the repository to keep me motivated.
-
-<a href = "https://github.com/sergio11/eventchain_blockchain/stargazers">
-  <img src = "https://img.shields.io/github/stars/sergio11/eventchain_blockchain" />
-</a>
